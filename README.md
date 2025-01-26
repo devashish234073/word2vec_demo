@@ -7,4 +7,4 @@ Download the two .tsv files from above location or just run word2vec_download.py
 Run "word2vec_train.py" to train the model.
 
 Once trained run word2vec_run.py it will find similar words. 
-The dimention of the vector is set in word2vec_train.py you can tweak that to change it.
+The dimention of the vector is set in word2vec_train.py you can tweak that and train again to change it.
