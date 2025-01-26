@@ -10,7 +10,7 @@ Run "word2vec_train.py" to train the model.
 
 Once trained run word2vec_run.py it will find similar words. 
 
-![image](https://github.com/user-attachments/assets/70f1a7f3-fd2b-4266-acc1-5adcbaf30ceb)
+![image](https://github.com/user-attachments/assets/7c491cea-16c0-4456-a4b3-a90538dc0649)
 
 The dimension of the vector is set in word2vec_train.py you can tweak that and train again to change it.
 In the above screenshot you can see teh dimention of the vector is 2 and for dimention of 2 I have added logic to also plot the word in graph.
