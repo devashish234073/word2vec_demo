@@ -19,8 +19,20 @@ word_color_map = {}
 for word in word_array:
     if word in model.wv:
         # Example: Find similar words
-        similar_words = model.wv.most_similar(word, topn=5)
+        similar_words = model.wv.most_similar(word, topn=2)
         print("\nWords similar to '{}':".format(word))
+        distances = {}
+        for w in word_array:
+            if w in model.wv.key_to_index and word in model.wv.key_to_index:
+                similarity = model.wv.similarity(word, w)
+                distances[w] = similarity
+            else:
+                distances[word] = None 
+        # Output the distances
+        print(f"Similarity of '{word}' with words in the array:")
+        sorted_distances = sorted(distances.items(), key=lambda x: x[1])
+        for ww, distance in sorted_distances:
+            print(f"{word} -> {ww}: {distance}")
         for similar_word, similarity in similar_words:
             print(f"{similar_word}: {similarity:.4f}")
         print(f"Vector for '{word}':\n{model.wv[word]}")
