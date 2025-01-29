@@ -21,6 +21,9 @@ for word in word_array:
         # Example: Find similar words
         similar_words = model.wv.most_similar(word, topn=2)
         print("\nWords similar to '{}':".format(word))
+        for similar_word, similarity in similar_words:
+            print(f"{similar_word}: {similarity:.4f}")
+        print(f"Vector for '{word}':\n{model.wv[word]}")
         distances = {}
         for w in word_array:
             if w in model.wv.key_to_index and word in model.wv.key_to_index:
@@ -33,9 +36,7 @@ for word in word_array:
         sorted_distances = sorted(distances.items(), key=lambda x: x[1], reverse=True)
         for ww, distance in sorted_distances:
             print(f"{word} -> {ww}: {distance}")
-        for similar_word, similarity in similar_words:
-            print(f"{similar_word}: {similarity:.4f}")
-        print(f"Vector for '{word}':\n{model.wv[word]}")
+        
         if(model.wv[word].shape == (2,)):
             x_coords.append(model.wv[word][0])
             y_coords.append(model.wv[word][1])
