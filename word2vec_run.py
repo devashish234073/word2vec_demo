@@ -33,7 +33,11 @@ for word in word_array:
                 distances[word] = None 
         # Output the distances
         print(f"Similarity of '{word}' with words in the array:")
-        sorted_distances = sorted(distances.items(), key=lambda x: x[1], reverse=True)
+        #sorted_distances = sorted(distances.items(), key=lambda x: x[1], reverse=True)
+        sorted_distances = sorted([(k, v) for k, v in distances.items() if v is not None], 
+        key=lambda x: x[1], 
+        reverse=True)
+
         for ww, distance in sorted_distances:
             print(f"{word} -> {ww}: {distance}")
         
